@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="如何控制线程打印顺序volatile 和 synchronized新建一个线程的几种方式分布式锁的实现方式如何通过一个-swap-交换两个数">
+  <meta name="description" content="如何控制线程打印顺序使用 join 方法 如下面代码所示：">
 <meta name="keywords" content="面试,多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多线程高频面试题">
 <meta property="og:url" content="http://yoursite.com/2019/08/13/多线程高频面试题/index.html">
 <meta property="og:site_name" content="Jeson&#39;s Blog">
-<meta property="og:description" content="如何控制线程打印顺序volatile 和 synchronized新建一个线程的几种方式分布式锁的实现方式如何通过一个-swap-交换两个数">
+<meta property="og:description" content="如何控制线程打印顺序使用 join 方法 如下面代码所示：">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/13/mp7eKS.png">
-<meta property="og:updated_time" content="2019-08-13T00:08:35.781Z">
+<meta property="og:updated_time" content="2019-08-13T02:00:06.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多线程高频面试题">
-<meta name="twitter:description" content="如何控制线程打印顺序volatile 和 synchronized新建一个线程的几种方式分布式锁的实现方式如何通过一个-swap-交换两个数">
+<meta name="twitter:description" content="如何控制线程打印顺序使用 join 方法 如下面代码所示：">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/08/13/mp7eKS.png">
   <link rel="canonical" href="http://yoursite.com/2019/08/13/多线程高频面试题/">
 
@@ -251,7 +251,7 @@
                 
               
 
-              <time title="创建时间：2019-08-13 07:41:41 / 修改时间：08:08:35" itemprop="dateCreated datePublished" datetime="2019-08-13T07:41:41+08:00">2019-08-13</time>
+              <time title="创建时间：2019-08-13 07:41:41 / 修改时间：10:00:06" itemprop="dateCreated datePublished" datetime="2019-08-13T07:41:41+08:00">2019-08-13</time>
             </span>
           
             
@@ -291,11 +291,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>如何控制线程打印顺序<br>volatile 和 synchronized<br>新建一个线程的几种方式<br>分布式锁的实现方式<br>如何通过一个-swap-交换两个数 </p>
-<a id="more"></a>
+        <h2 id="如何控制线程打印顺序"><a href="#如何控制线程打印顺序" class="headerlink" title="如何控制线程打印顺序"></a>如何控制线程打印顺序</h2><h3 id="使用-join-方法-如下面代码所示："><a href="#使用-join-方法-如下面代码所示：" class="headerlink" title="使用 join 方法 如下面代码所示："></a>使用 join 方法 如下面代码所示：</h3><a id="more"></a>
 
-
-<h2 id="如何控制线程打印顺序"><a href="#如何控制线程打印顺序" class="headerlink" title="如何控制线程打印顺序"></a>如何控制线程打印顺序</h2><h3 id="使用-join-方法-如下面代码所示："><a href="#使用-join-方法-如下面代码所示：" class="headerlink" title="使用 join 方法 如下面代码所示："></a>使用 join 方法 如下面代码所示：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadDemo &#123;</span><br><span class="line">    public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">        final Thread thread1 = new Thread(() -&gt; System.out.println(&quot;thread1&quot;));</span><br><span class="line">        final Thread thread2 = new Thread(() -&gt; System.out.println(&quot;thread2&quot;));</span><br><span class="line">        final Thread thread3 = new Thread(() -&gt; System.out.println(&quot;thread3&quot;));</span><br><span class="line"></span><br><span class="line">        thread1.start();</span><br><span class="line">        thread1.join();</span><br><span class="line">        thread2.start();</span><br><span class="line">        thread2.join();</span><br><span class="line">        thread3.start();</span><br><span class="line">        thread3.join();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class ThreadDemo &#123;</span><br><span class="line">    public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">        final Thread thread1 = new Thread(() -&gt; System.out.println(&quot;thread1&quot;));</span><br><span class="line">        final Thread thread2 = new Thread(() -&gt; System.out.println(&quot;thread2&quot;));</span><br><span class="line">        final Thread thread3 = new Thread(() -&gt; System.out.println(&quot;thread3&quot;));</span><br><span class="line"></span><br><span class="line">        thread1.start();</span><br><span class="line">        thread1.join();</span><br><span class="line">        thread2.start();</span><br><span class="line">        thread2.join();</span><br><span class="line">        thread3.start();</span><br><span class="line">        thread3.join();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>通过 join 方法去保证多线程的顺序的特性，join 主要让主线程等待子线程结束后才能继续运行。</p>
 <p><img src="https://s2.ax1x.com/2019/08/13/mp7eKS.png" alt="多线程高频面试题.png"></p>
@@ -390,7 +388,7 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/08/13/多线程总结/" rel="prev" title="并发编程">
+                <a href="/2019/08/13/并发编程总结/" rel="prev" title="并发编程">
                   并发编程 <i class="fa fa-chevron-right"></i>
                 </a>
               
@@ -449,7 +447,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -468,7 +466,9 @@
         
           
         
-        <span class="site-state-item-count">2</span>
+          
+        
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -493,7 +493,9 @@
         
           
         
-        <span class="site-state-item-count">5</span>
+          
+        
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

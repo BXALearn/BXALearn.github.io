@@ -55,13 +55,13 @@
   };
 </script>
 
-  <meta name="description" content="JUCCAS">
-<meta name="keywords" content="多线程,并发编程">
+  <meta name="description" content="请谈谈你对-volatile-的理解volatile-是-Java-虚拟机提供的轻量级的同步机制 保证可见性 禁止指令排序 不保证原子性">
+<meta name="keywords" content="面试,多线程,并发编程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="并发编程">
-<meta property="og:url" content="http://yoursite.com/2019/08/13/多线程总结/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/08/13/并发编程总结/index.html">
 <meta property="og:site_name" content="Jeson&#39;s Blog">
-<meta property="og:description" content="JUCCAS">
+<meta property="og:description" content="请谈谈你对-volatile-的理解volatile-是-Java-虚拟机提供的轻量级的同步机制 保证可见性 禁止指令排序 不保证原子性">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/13/mpHxTH.png">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/13/mpbw1x.png">
@@ -69,12 +69,12 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/13/mpbd91.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/13/mpbptA.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/08/13/mpbkX8.jpg">
-<meta property="og:updated_time" content="2019-08-13T01:10:59.376Z">
+<meta property="og:updated_time" content="2019-08-13T01:59:10.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="并发编程">
-<meta name="twitter:description" content="JUCCAS">
+<meta name="twitter:description" content="请谈谈你对-volatile-的理解volatile-是-Java-虚拟机提供的轻量级的同步机制 保证可见性 禁止指令排序 不保证原子性">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/08/13/mpHxTH.png">
-  <link rel="canonical" href="http://yoursite.com/2019/08/13/多线程总结/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/13/并发编程总结/">
 
 
 <script id="page-configurations">
@@ -225,7 +225,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/多线程总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/并发编程总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="摆欣安">
@@ -256,7 +256,7 @@
                 
               
 
-              <time title="创建时间：2019-08-13 08:26:25 / 修改时间：09:10:59" itemprop="dateCreated datePublished" datetime="2019-08-13T08:26:25+08:00">2019-08-13</time>
+              <time title="创建时间：2019-08-13 08:26:25 / 修改时间：09:59:10" itemprop="dateCreated datePublished" datetime="2019-08-13T08:26:25+08:00">2019-08-13</time>
             </span>
           
             
@@ -296,14 +296,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>JUC<br>CAS</p>
-<a id="more"></a>
-
-
-<h3 id="请谈谈你对-volatile-的理解"><a href="#请谈谈你对-volatile-的理解" class="headerlink" title="请谈谈你对-volatile-的理解"></a>请谈谈你对-volatile-的理解</h3><h4 id="volatile-是-Java-虚拟机提供的轻量级的同步机制"><a href="#volatile-是-Java-虚拟机提供的轻量级的同步机制" class="headerlink" title="volatile-是-Java-虚拟机提供的轻量级的同步机制"></a>volatile-是-Java-虚拟机提供的轻量级的同步机制</h4><ul>
+        <h3 id="请谈谈你对-volatile-的理解"><a href="#请谈谈你对-volatile-的理解" class="headerlink" title="请谈谈你对-volatile-的理解"></a>请谈谈你对-volatile-的理解</h3><h4 id="volatile-是-Java-虚拟机提供的轻量级的同步机制"><a href="#volatile-是-Java-虚拟机提供的轻量级的同步机制" class="headerlink" title="volatile-是-Java-虚拟机提供的轻量级的同步机制"></a>volatile-是-Java-虚拟机提供的轻量级的同步机制</h4><ul>
 <li>保证可见性</li>
 <li>禁止指令排序</li>
-<li>不保证原子性</li>
+<li>不保证原子性<a id="more"></a>
+
+</li>
 </ul>
 <h3 id="你谈谈-JMM（Java-内存模型）"><a href="#你谈谈-JMM（Java-内存模型）" class="headerlink" title="你谈谈 JMM（Java-内存模型）"></a>你谈谈 JMM（Java-内存模型）</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><ul>
 <li>JMM<br>本身是一种抽象的概念并不是真实存在，它描述的是一组规定或则规范，通过这组规范定义了程序中的访问方式。</li>
@@ -803,6 +801,8 @@
           
           <div class="post-tags">
             
+              <a href="/tags/面试/" rel="tag"># 面试</a>
+            
               <a href="/tags/多线程/" rel="tag"># 多线程</a>
             
               <a href="/tags/并发编程/" rel="tag"># 并发编程</a>
@@ -824,6 +824,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/08/13/JVM总结/" rel="prev" title="JVM">
+                  JVM <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -880,7 +884,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -899,7 +903,9 @@
         
           
         
-        <span class="site-state-item-count">2</span>
+          
+        
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -924,7 +930,9 @@
         
           
         
-        <span class="site-state-item-count">5</span>
+          
+        
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
